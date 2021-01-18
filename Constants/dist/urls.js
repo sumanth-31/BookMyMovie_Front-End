@@ -10,6 +10,7 @@ exports.API_URLS = {
     citiesUrl: "cities/",
     moviesUrl: "movies/",
     screensUrl: "screens/",
+    seatsUrl: "seats/",
     buildUrl: function (urlName) {
         return BASE_URL + this[urlName];
     }

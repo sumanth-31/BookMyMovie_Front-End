@@ -3,3 +3,4 @@ export * from "./OwnerModel";
 export * from "./CityModel";
 export * from "./MovieModel";
 export * from "./ScreenModel";
+export * from "./SeatModel";
