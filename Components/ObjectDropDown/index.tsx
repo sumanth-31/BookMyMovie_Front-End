@@ -9,31 +9,17 @@ export const ObjectDropDown = (props: IDropDownComponentProps) => {
 		props.onSelect(parseInt(event.target.value));
 	};
 	const redirectToRegister = () => {
-		if (props.type === "owner") {
-			router.push(CLIENT_URLS.registerOwner);
-		} else {
-			router.push(CLIENT_URLS.registerCity);
-		}
+		router.push(props.redirectUrl);
 	};
 	return (
 		<div className="input-group">
 			<select className="form-control" required onChange={optionChange}>
-				{props.objects.map((obj: IOwnerModel | ICityModel, ind) => {
-					if ("mail" in obj) {
-						//If Object is Owner
-						return (
-							<option key={obj.id} value={obj.id}>
-								{obj.mail}
-							</option>
-						);
-					} //Object is City
-					else {
-						return (
-							<option key={obj.id} value={obj.id}>
-								{obj.name}
-							</option>
-						);
-					}
+				{props.objects.map((obj) => {
+					return (
+						<option key={obj.id} value={obj.id}>
+							{obj[props.displayProperty]}
+						</option>
+					);
 				})}
 			</select>
 			<div className="input-group-append">
