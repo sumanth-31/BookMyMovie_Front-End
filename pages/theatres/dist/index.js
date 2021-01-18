@@ -53,10 +53,15 @@ var react_1 = require("react");
 var axios_1 = require("axios");
 var index_1 = require("@Constants/index");
 var index_2 = require("@Components/index");
+var router_1 = require("next/router");
 var Theatres = /** @class */ (function (_super) {
     __extends(Theatres, _super);
     function Theatres() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.redirectToRegister = function () {
+            router_1["default"].push(index_1.CLIENT_URLS.registerTheatre);
+        };
+        return _this;
     }
     Theatres.getInitialProps = function (_a) {
         var req = _a.req;
@@ -91,7 +96,7 @@ var Theatres = /** @class */ (function (_super) {
             react_1["default"].createElement(index_2.Navbar, null),
             react_1["default"].createElement("div", { className: "mt-2 px-3 d-flex align-content-center justify-content-between mb-3" },
                 react_1["default"].createElement("h3", { className: "d-inline" }, "Theatres"),
-                react_1["default"].createElement("button", { className: "btn btn-primary absolute right-0" }, "+ Add Theatre")),
+                react_1["default"].createElement("button", { className: "btn btn-primary absolute right-0", onClick: this.redirectToRegister }, "+ Add Theatre")),
             react_1["default"].createElement("div", { className: "card w-100" },
                 react_1["default"].createElement("ul", { className: "list-group" }, theatres.map(function (theatre) { return (react_1["default"].createElement(index_2.Theatre, { key: theatre.id, theatre: theatre })); })))));
     };
