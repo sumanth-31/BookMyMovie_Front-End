@@ -4,7 +4,7 @@ import axios from "axios";
 import { IGetTheatresResponse } from "@Interfaces/index";
 import { ITheatreModel } from "@Models/index";
 import { API_URLS, CLIENT_URLS } from "@Constants/index";
-import { Navbar, Theatre } from "@Components/index";
+import { Navbar, TheatreComponent } from "@Components/index";
 import Router from "next/router";
 class Theatres extends Component<IGetTheatresResponse> {
 	static async getInitialProps({ req }: NextPageContext) {
@@ -44,7 +44,7 @@ class Theatres extends Component<IGetTheatresResponse> {
 				<div className="card w-100">
 					<ul className="list-group">
 						{theatres.map((theatre) => (
-							<Theatre key={theatre.id} theatre={theatre} />
+							<TheatreComponent key={theatre.id} theatre={theatre} />
 						))}
 					</ul>
 				</div>
