@@ -14,3 +14,4 @@ __exportStar(require("./TheatreModel"), exports);
 __exportStar(require("./OwnerModel"), exports);
 __exportStar(require("./CityModel"), exports);
 __exportStar(require("./MovieModel"), exports);
+__exportStar(require("./ScreenModel"), exports);
