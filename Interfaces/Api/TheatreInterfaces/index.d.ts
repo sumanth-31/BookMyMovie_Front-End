@@ -5,4 +5,11 @@ export interface IGetTheatresResponse {
 export interface IGetTheatreResponse {
 	theatre: ITheatreModel;
 }
-export interface IPostTheatreRequest {}
+export interface IPostTheatreRequest {
+	name: string;
+	cityId: number;
+	ownerId: number;
+}
+export interface IPostTheatreResponse {
+	theatre: ITheatreModel;
+}

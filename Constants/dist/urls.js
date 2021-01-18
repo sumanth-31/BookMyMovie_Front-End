@@ -13,5 +13,7 @@ exports.API_URLS = {
     }
 };
 exports.CLIENT_URLS = {
-    theatres: "/theatres"
+    theatres: "/theatres",
+    registerOwner: "/register/owner",
+    registerCity: "/register/city"
 };
