@@ -5,6 +5,7 @@ export const API_URLS = {
 	theatresUrl: "theatres/",
 	ownersUrl: "owners/",
 	citiesUrl: "cities/",
+	moviesUrl: "movies/",
 	buildUrl: function (urlName: string) {
 		return BASE_URL + this[urlName];
 	},
@@ -14,4 +15,5 @@ export const CLIENT_URLS = {
 	registerOwner: "/register/owner/",
 	registerCity: "/register/city/",
 	registerTheatre: "/register/theatre/",
+	registerMovie: "/register/movie/",
 };

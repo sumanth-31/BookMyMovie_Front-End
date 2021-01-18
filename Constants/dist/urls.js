@@ -8,6 +8,7 @@ exports.API_URLS = {
     theatresUrl: "theatres/",
     ownersUrl: "owners/",
     citiesUrl: "cities/",
+    moviesUrl: "movies/",
     buildUrl: function (urlName) {
         return BASE_URL + this[urlName];
     }
@@ -16,5 +17,6 @@ exports.CLIENT_URLS = {
     theatres: "/theatres",
     registerOwner: "/register/owner/",
     registerCity: "/register/city/",
-    registerTheatre: "/register/theatre/"
+    registerTheatre: "/register/theatre/",
+    registerMovie: "/register/movie/"
 };
