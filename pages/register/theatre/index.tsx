@@ -72,6 +72,8 @@ const Theatre: NextPage<IRegisterTheatreProps> = (props) => {
 								type="Owner"
 								objects={owners}
 								onSelect={ownerChange}
+								redirectUrl={CLIENT_URLS.registerOwner}
+								displayProperty="mail"
 							/>
 						</div>
 						<div className="form-group col-md-4">
@@ -80,6 +82,8 @@ const Theatre: NextPage<IRegisterTheatreProps> = (props) => {
 								type="City"
 								objects={cities}
 								onSelect={cityChange}
+								redirectUrl={CLIENT_URLS.registerCity}
+								displayProperty="name"
 							/>
 						</div>
 					</div>

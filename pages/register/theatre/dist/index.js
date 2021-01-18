@@ -88,10 +88,10 @@ var Theatre = function (props) {
                             } })),
                     react_1["default"].createElement("div", { className: "form-group col-md-4" },
                         react_1["default"].createElement("label", null, "Select Owner"),
-                        react_1["default"].createElement(index_2.ObjectDropDown, { type: "Owner", objects: owners, onSelect: ownerChange })),
+                        react_1["default"].createElement(index_2.ObjectDropDown, { type: "Owner", objects: owners, onSelect: ownerChange, redirectUrl: index_1.CLIENT_URLS.registerOwner, displayProperty: "mail" })),
                     react_1["default"].createElement("div", { className: "form-group col-md-4" },
                         react_1["default"].createElement("label", null, "Select City"),
-                        react_1["default"].createElement(index_2.ObjectDropDown, { type: "City", objects: cities, onSelect: cityChange }))),
+                        react_1["default"].createElement(index_2.ObjectDropDown, { type: "City", objects: cities, onSelect: cityChange, redirectUrl: index_1.CLIENT_URLS.registerCity, displayProperty: "name" }))),
                 react_1["default"].createElement("button", { className: "btn btn-primary w-100", type: "submit" }, "Submit")))));
 };
 Theatre.getInitialProps = function (_a) {
