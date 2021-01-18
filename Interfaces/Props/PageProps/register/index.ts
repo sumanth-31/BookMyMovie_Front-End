@@ -1,1 +1,1 @@
-export * from "./RegsisterTheatreProps";
+export * from "./RegisterTheatreProps";

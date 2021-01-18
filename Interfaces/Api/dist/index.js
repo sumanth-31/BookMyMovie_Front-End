@@ -13,3 +13,4 @@ exports.__esModule = true;
 __exportStar(require("./CityInterfaces"), exports);
 __exportStar(require("./OwnerInterfaces"), exports);
 __exportStar(require("./TheatreInterfaces"), exports);
+__exportStar(require("./MovieInterfaces"), exports);
