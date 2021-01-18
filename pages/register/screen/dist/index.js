@@ -40,37 +40,37 @@ var react_1 = require("react");
 var axios_1 = require("axios");
 var index_1 = require("@Constants/index");
 var index_2 = require("@Components/index");
-var RegisterTheatre = function (props) {
-    var owners = props.owners;
-    var cities = props.cities;
-    var ownerIdInitialValue = owners.length > 0 ? owners[0].id : 0;
-    var cityIdInitialValue = cities.length > 0 ? cities[0].id : 0;
-    var _a = react_1.useState(""), theatreName = _a[0], setTheatreName = _a[1];
-    var _b = react_1.useState(ownerIdInitialValue), ownerId = _b[0], setOwnerId = _b[1];
-    var _c = react_1.useState(cityIdInitialValue), cityId = _c[0], setCityId = _c[1];
-    var ownerChange = function (id) {
-        console.log("called owner change " + id);
-        setOwnerId(id);
+var RegisterScreen = function (props) {
+    var theatres = props.theatres;
+    var movies = props.movies;
+    var theatreIdInitialValue = theatres.length > 0 ? theatres[0].id : 0;
+    var moviesIdInitialValue = movies.length > 0 ? movies[0].id : 0;
+    var _a = react_1.useState(-1), numberOfSeats = _a[0], setNumberOfSeats = _a[1];
+    var _b = react_1.useState(theatreIdInitialValue), theatreId = _b[0], setTheatreId = _b[1];
+    var _c = react_1.useState(moviesIdInitialValue), movieId = _c[0], setMovieId = _c[1];
+    var theatreChange = function (id) {
+        setTheatreId(id);
     };
-    var cityChange = function (id) {
-        console.log("called city change " + id);
-        setCityId(id);
+    var movieChange = function (id) {
+        setMovieId(id);
     };
-    var registerTheatre = function (event) {
+    var registerScreen = function (event) {
         event.preventDefault();
-        var url = index_1.API_URLS.buildUrl("theatresUrl");
+        var url = index_1.API_URLS.buildUrl("screensUrl");
         var requestData = {
-            name: theatreName,
-            ownerId: ownerId,
-            cityId: cityId
+            theatreId: theatreId,
+            movieId: movieId
         };
+        if (numberOfSeats > 0) {
+            requestData.numberOfSeats = numberOfSeats;
+        }
         axios_1["default"]
             .post(url, requestData)
             .then(function (response) {
             var responseData = response.data;
-            var theatre = responseData.theatre;
-            console.log(theatre);
-            alert("Theatre registered successfully");
+            var screen = responseData.screen;
+            console.log(screen);
+            alert("Screen registered successfully");
         })["catch"](function (err) {
             console.log(err);
             alert("Error occured! " + err.response.data.message);
@@ -79,40 +79,40 @@ var RegisterTheatre = function (props) {
     return (react_1["default"].createElement("div", { className: "d-flex flex-column vh-100" },
         react_1["default"].createElement(index_2.Navbar, null),
         react_1["default"].createElement("div", { className: "d-flex flex-column justify-content-center align-items-center flex-grow-1" },
-            react_1["default"].createElement("form", { className: "w-75", onSubmit: registerTheatre },
+            react_1["default"].createElement("form", { className: "w-75", onSubmit: registerScreen },
                 react_1["default"].createElement("div", { className: "form-row" },
                     react_1["default"].createElement("div", { className: "form-group col-md-4" },
-                        react_1["default"].createElement("label", null, "Theatre Name"),
-                        react_1["default"].createElement("input", { className: "form-control", required: true, placeholder: "Enter Theatre Name", onChange: function (e) {
-                                setTheatreName(e.target.value);
-                            } })),
+                        react_1["default"].createElement("label", null, "Select Theatre"),
+                        react_1["default"].createElement(index_2.ObjectDropDown, { type: "Theatre", objects: theatres, onSelect: theatreChange, redirectUrl: index_1.CLIENT_URLS.registerTheatre, displayProperty: "name" })),
                     react_1["default"].createElement("div", { className: "form-group col-md-4" },
-                        react_1["default"].createElement("label", null, "Select Owner"),
-                        react_1["default"].createElement(index_2.ObjectDropDown, { type: "Owner", objects: owners, onSelect: ownerChange, redirectUrl: index_1.CLIENT_URLS.registerOwner, displayProperty: "mail" })),
+                        react_1["default"].createElement("label", null, "Select Movie"),
+                        react_1["default"].createElement(index_2.ObjectDropDown, { type: "Movie", objects: movies, onSelect: movieChange, redirectUrl: index_1.CLIENT_URLS.registerMovie, displayProperty: "name" })),
                     react_1["default"].createElement("div", { className: "form-group col-md-4" },
-                        react_1["default"].createElement("label", null, "Select City"),
-                        react_1["default"].createElement(index_2.ObjectDropDown, { type: "City", objects: cities, onSelect: cityChange, redirectUrl: index_1.CLIENT_URLS.registerCity, displayProperty: "name" }))),
+                        react_1["default"].createElement("label", null, "Number of Seats"),
+                        react_1["default"].createElement("input", { className: "form-control", type: "number", onChange: function (e) {
+                                setNumberOfSeats(parseInt(e.target.value));
+                            }, min: 1, max: 100 }))),
                 react_1["default"].createElement("button", { className: "btn btn-primary w-100", type: "submit" }, "Submit")))));
 };
-RegisterTheatre.getInitialProps = function (_a) {
+RegisterScreen.getInitialProps = function (_a) {
     var req = _a.req;
     return __awaiter(void 0, void 0, void 0, function () {
-        var owners, cities, citiesUrl, citiesPromise, ownersUrl, ownersPromise;
+        var movies, theatres, moviesUrl, moviesPromise, theatresUrl, theatresPromise;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
-                    owners = [];
-                    cities = [];
-                    citiesUrl = index_1.API_URLS.buildUrl("citiesUrl");
-                    citiesPromise = axios_1["default"].get(citiesUrl);
-                    ownersUrl = index_1.API_URLS.buildUrl("ownersUrl");
-                    ownersPromise = axios_1["default"].get(ownersUrl);
-                    return [4 /*yield*/, Promise.all([citiesPromise, ownersPromise])
+                    movies = [];
+                    theatres = [];
+                    moviesUrl = index_1.API_URLS.buildUrl("moviesUrl");
+                    moviesPromise = axios_1["default"].get(moviesUrl);
+                    theatresUrl = index_1.API_URLS.buildUrl("theatresUrl");
+                    theatresPromise = axios_1["default"].get(theatresUrl);
+                    return [4 /*yield*/, Promise.all([theatresPromise, moviesPromise])
                             .then(function (values) {
-                            var citiesResponse = values[0].data;
-                            var ownersResponse = values[1].data;
-                            cities = citiesResponse.cities;
-                            owners = ownersResponse.owners;
+                            var theatresResponse = values[0].data;
+                            var moviesResponse = values[1].data;
+                            movies = moviesResponse.movies;
+                            theatres = theatresResponse.theatres;
                         })["catch"](function (reason) {
                             alert("Error Occured!");
                             console.log(reason);
@@ -120,11 +120,11 @@ RegisterTheatre.getInitialProps = function (_a) {
                 case 1:
                     _b.sent();
                     return [2 /*return*/, {
-                            cities: cities,
-                            owners: owners
+                            theatres: theatres,
+                            movies: movies
                         }];
             }
         });
     });
 };
-exports["default"] = RegisterTheatre;
+exports["default"] = RegisterScreen;

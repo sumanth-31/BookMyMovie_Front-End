@@ -6,6 +6,7 @@ export const API_URLS = {
 	ownersUrl: "owners/",
 	citiesUrl: "cities/",
 	moviesUrl: "movies/",
+	screensUrl: "screens/",
 	buildUrl: function (urlName: string) {
 		return BASE_URL + this[urlName];
 	},

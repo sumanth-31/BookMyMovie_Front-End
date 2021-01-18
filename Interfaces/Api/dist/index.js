@@ -14,3 +14,4 @@ __exportStar(require("./CityInterfaces"), exports);
 __exportStar(require("./OwnerInterfaces"), exports);
 __exportStar(require("./TheatreInterfaces"), exports);
 __exportStar(require("./MovieInterfaces"), exports);
+__exportStar(require("./ScreenInterfaces"), exports);

@@ -12,7 +12,7 @@ import { useRouter } from "next/router";
 import { ICityModel, IOwnerModel } from "@Interfaces/Models";
 import { API_URLS, CLIENT_URLS } from "@Constants/index";
 import { Navbar, ObjectDropDown } from "@Components/index";
-const Theatre: NextPage<IRegisterTheatreProps> = (props) => {
+const RegisterTheatre: NextPage<IRegisterTheatreProps> = (props) => {
 	const owners = props.owners;
 	const cities = props.cities;
 	const ownerIdInitialValue = owners.length > 0 ? owners[0].id : 0;
@@ -95,7 +95,7 @@ const Theatre: NextPage<IRegisterTheatreProps> = (props) => {
 		</div>
 	);
 };
-Theatre.getInitialProps = async ({ req }) => {
+RegisterTheatre.getInitialProps = async ({ req }) => {
 	let owners: IOwnerModel[] = [];
 	let cities: ICityModel[] = [];
 	const citiesUrl = API_URLS.buildUrl("citiesUrl");
@@ -118,4 +118,4 @@ Theatre.getInitialProps = async ({ req }) => {
 		owners: owners,
 	};
 };
-export default Theatre;
+export default RegisterTheatre;
