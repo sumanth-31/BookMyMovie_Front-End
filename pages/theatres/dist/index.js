@@ -98,7 +98,7 @@ var Theatres = /** @class */ (function (_super) {
                 react_1["default"].createElement("h3", { className: "d-inline" }, "Theatres"),
                 react_1["default"].createElement("button", { className: "btn btn-primary absolute right-0", onClick: this.redirectToRegister }, "+ Add Theatre")),
             react_1["default"].createElement("div", { className: "card w-100" },
-                react_1["default"].createElement("ul", { className: "list-group" }, theatres.map(function (theatre) { return (react_1["default"].createElement(index_2.Theatre, { key: theatre.id, theatre: theatre })); })))));
+                react_1["default"].createElement("ul", { className: "list-group" }, theatres.map(function (theatre) { return (react_1["default"].createElement(index_2.TheatreComponent, { key: theatre.id, theatre: theatre })); })))));
     };
     return Theatres;
 }(react_1.Component));

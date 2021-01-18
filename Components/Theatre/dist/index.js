@@ -13,19 +13,22 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 exports.__esModule = true;
-exports.Theatre = void 0;
+exports.TheatreComponent = void 0;
 var react_1 = require("react");
-var Theatre = /** @class */ (function (_super) {
-    __extends(Theatre, _super);
-    function Theatre() {
+var link_1 = require("next/link");
+var index_1 = require("@Constants/index");
+var TheatreComponent = /** @class */ (function (_super) {
+    __extends(TheatreComponent, _super);
+    function TheatreComponent() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    Theatre.prototype.render = function () {
+    TheatreComponent.prototype.render = function () {
         var theatre = this.props.theatre;
         return (react_1["default"].createElement("li", { className: "list-group-item" },
             react_1["default"].createElement("div", { className: "float-left" }, theatre.name),
-            react_1["default"].createElement("button", { className: "btn btn-primary float-right" }, "Book Tickets")));
+            react_1["default"].createElement(link_1["default"], { href: index_1.CLIENT_URLS.theatres + "/" + theatre.id },
+                react_1["default"].createElement("button", { className: "btn btn-primary float-right" }, "Book Tickets"))));
     };
-    return Theatre;
+    return TheatreComponent;
 }(react_1.Component));
-exports.Theatre = Theatre;
+exports.TheatreComponent = TheatreComponent;
