@@ -1,5 +1,5 @@
 import { ICityModel } from "@Models/index";
-export interface IGetCityResponse {
+export interface IGetCitiesResponse {
 	cities: ICityModel[];
 }
 export interface IGetCityResponse {
