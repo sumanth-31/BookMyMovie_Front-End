@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { IPostOwnerRequest, IPostOwnerResponse } from "@Interfaces/index";
 import { Navbar } from "@Components/index";
 import axios from "axios";
-import { API_URLS, CLIENT_URLS } from "@Constants/index";
+import { API_URLS } from "@Constants/index";
 import { useRouter } from "next/router";
 const OwnerRegistration = () => {
 	const [ownerName, setOwnerName] = useState("");
@@ -22,7 +22,6 @@ const OwnerRegistration = () => {
 				const returnedOwner = responseData.owner;
 				console.log(returnedOwner);
 				alert("Owner successfully registered!");
-				router.push(CLIENT_URLS.theatres);
 			})
 			.catch((err) => {
 				console.log(err);

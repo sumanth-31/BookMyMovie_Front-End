@@ -25,7 +25,7 @@ const Theatre: NextPage<ITheatreSlugProps> = (props) => {
 			</div>
 			<div className="card">
 				{screens.length === 0 ? (
-					<h3 className="text-center mt-3">Sorry! There are no screes.</h3>
+					<h3 className="text-center mt-3">Sorry! There are no screens.</h3>
 				) : null}
 				<ul className="list-group">
 					{screens.map((screen) => {

@@ -61,7 +61,6 @@ var CityRegistration = function () {
                             var returnedCity = responseData.city;
                             console.log(returnedCity);
                             alert("City successfully registered!");
-                            router.push(index_2.CLIENT_URLS.theatres);
                         })["catch"](function (err) {
                             console.log(err);
                             var errorMessage = "";

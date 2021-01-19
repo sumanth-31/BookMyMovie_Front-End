@@ -61,7 +61,6 @@ var MovieRegistration = function () {
                             var returnedMovie = responseData.movie;
                             console.log(returnedMovie);
                             alert("Movie successfully registered!");
-                            router.push(index_2.CLIENT_URLS.theatres);
                         })["catch"](function (err) {
                             console.log(err);
                             var errorMessage = "";

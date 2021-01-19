@@ -63,7 +63,6 @@ var OwnerRegistration = function () {
                             var returnedOwner = responseData.owner;
                             console.log(returnedOwner);
                             alert("Owner successfully registered!");
-                            router.push(index_2.CLIENT_URLS.theatres);
                         })["catch"](function (err) {
                             console.log(err);
                             var errorMessage = "";

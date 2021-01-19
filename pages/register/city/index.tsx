@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { IPostCityRequest, IPostCityResponse } from "@Interfaces/index";
 import { Navbar } from "@Components/index";
-import { API_URLS, CLIENT_URLS } from "@Constants/index";
+import { API_URLS } from "@Constants/index";
 import axios from "axios";
 import { useRouter } from "next/router";
 const CityRegistration = () => {
@@ -20,7 +20,6 @@ const CityRegistration = () => {
 				const returnedCity = responseData.city;
 				console.log(returnedCity);
 				alert("City successfully registered!");
-				router.push(CLIENT_URLS.theatres);
 			})
 			.catch((err) => {
 				console.log(err);

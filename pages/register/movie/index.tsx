@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { IPostMovieRequest, IPostMovieResponse } from "@Interfaces/index";
 import { Navbar } from "@Components/index";
-import { API_URLS, CLIENT_URLS } from "@Constants/index";
+import { API_URLS } from "@Constants/index";
 import axios from "axios";
 import { useRouter } from "next/router";
 const MovieRegistration = () => {
@@ -20,7 +20,6 @@ const MovieRegistration = () => {
 				const returnedMovie = responseData.movie;
 				console.log(returnedMovie);
 				alert("Movie successfully registered!");
-				router.push(CLIENT_URLS.theatres);
 			})
 			.catch((err) => {
 				console.log(err);
