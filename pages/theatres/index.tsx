@@ -5,7 +5,7 @@ import { IGetTheatresResponse } from "@Interfaces/index";
 import { ITheatreModel } from "@Models/index";
 import { API_URLS, CLIENT_URLS } from "@Constants/index";
 import { Navbar, TheatreComponent } from "@Components/index";
-import Router from "next/router";
+import Link from "next/link";
 class Theatres extends Component<IGetTheatresResponse> {
 	static async getInitialProps({ res }: NextPageContext) {
 		let theatres: ITheatreModel[] = [];
@@ -26,9 +26,6 @@ class Theatres extends Component<IGetTheatresResponse> {
 			theatres: theatres,
 		};
 	}
-	redirectToRegister = () => {
-		Router.push(CLIENT_URLS.registerTheatre);
-	};
 	render() {
 		const theatres = this.props.theatres;
 		return (
@@ -36,12 +33,11 @@ class Theatres extends Component<IGetTheatresResponse> {
 				<Navbar />
 				<div className="mt-2 px-3 d-flex align-content-center justify-content-between mb-3">
 					<h3 className="d-inline">Theatres</h3>
-					<button
-						className="btn btn-primary absolute right-0"
-						onClick={this.redirectToRegister}
-					>
-						+ Add Theatre
-					</button>
+					<Link href={CLIENT_URLS.registerTheatre}>
+						<button className="btn btn-primary absolute right-0">
+							+ Add Theatre
+						</button>
+					</Link>
 				</div>
 				<div className="card w-100">
 					<ul className="list-group">
