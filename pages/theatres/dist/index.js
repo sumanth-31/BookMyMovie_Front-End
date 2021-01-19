@@ -91,7 +91,7 @@ var Theatres = /** @class */ (function (_super) {
     Theatres.prototype.render = function () {
         var theatres = this.props.theatres;
         return (react_1["default"].createElement("div", { className: "d-flex flex-column" },
-            react_1["default"].createElement(index_2.Navbar, null),
+            react_1["default"].createElement(index_2.Navbar, { theatres: true }),
             react_1["default"].createElement("div", { className: "mt-2 px-3 d-flex align-content-center justify-content-between mb-3" },
                 react_1["default"].createElement("h3", { className: "d-inline" }, "Theatres"),
                 react_1["default"].createElement(link_1["default"], { href: index_1.CLIENT_URLS.registerTheatre },

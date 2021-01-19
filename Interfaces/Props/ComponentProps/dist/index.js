@@ -13,3 +13,5 @@ exports.__esModule = true;
 __exportStar(require("./TheatreComponentProps"), exports);
 __exportStar(require("./DropDownComponentProps"), exports);
 __exportStar(require("./ScreenComponentProps"), exports);
+__exportStar(require("./NavbarComponentProps"), exports);
+__exportStar(require("./CityComponentProps"), exports);

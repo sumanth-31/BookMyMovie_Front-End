@@ -26,7 +26,7 @@ var TheatreComponent = /** @class */ (function (_super) {
         var theatre = this.props.theatre;
         return (react_1["default"].createElement("li", { className: "list-group-item" },
             react_1["default"].createElement("div", { className: "float-left" }, theatre.name),
-            react_1["default"].createElement(link_1["default"], { href: index_1.CLIENT_URLS.theatres + "/" + theatre.id },
+            react_1["default"].createElement(link_1["default"], { href: index_1.CLIENT_URLS.theatres + "/" + theatre.id + "/screens/" },
                 react_1["default"].createElement("button", { className: "btn btn-primary float-right" }, "Book Tickets"))));
     };
     return TheatreComponent;

@@ -17,6 +17,7 @@ exports.API_URLS = {
 };
 exports.CLIENT_URLS = {
     theatres: "/theatres",
+    cities: "/cities/",
     registerOwner: "/register/owner/",
     registerCity: "/register/city/",
     registerTheatre: "/register/theatre/",
