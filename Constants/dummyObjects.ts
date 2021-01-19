@@ -1,4 +1,4 @@
-import { IScreenModel, ITheatreModel } from "@Interfaces/Models";
+import { ICityModel, IScreenModel, ITheatreModel } from "@Interfaces/Models";
 
 export const DUMMY_THEATRE: ITheatreModel = {
 	id: 1,
@@ -33,4 +33,8 @@ export const DUMMY_SCREEN: IScreenModel = {
 		name: "dummy",
 	},
 	numberOfSeats: 60,
+};
+export const DUMMY_CITY: ICityModel = {
+	id: 0,
+	name: "Dummy",
 };

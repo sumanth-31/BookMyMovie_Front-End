@@ -11,13 +11,14 @@ exports.API_URLS = {
     moviesUrl: "movies/",
     screensUrl: "screens/",
     seatsUrl: "seats/",
+    moviesInCityUrl: "movies/city/",
     buildUrl: function (urlName) {
         return BASE_URL + this[urlName];
     }
 };
 exports.CLIENT_URLS = {
     theatres: "/theatres",
-    cities: "/cities/",
+    cities: "/cities",
     registerOwner: "/register/owner/",
     registerCity: "/register/city/",
     registerTheatre: "/register/theatre/",

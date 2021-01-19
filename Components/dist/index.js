@@ -9,11 +9,7 @@ var __createBinding = (this && this.__createBinding) || (Object.create ? (functi
 exports.__esModule = true;
 var Navbar_1 = require("./Navbar");
 __createBinding(exports, Navbar_1, "Navbar");
-var Theatre_1 = require("./Theatre");
-__createBinding(exports, Theatre_1, "TheatreComponent");
 var ObjectDropDown_1 = require("./ObjectDropDown");
 __createBinding(exports, ObjectDropDown_1, "ObjectDropDown");
-var Screen_1 = require("./Screen");
-__createBinding(exports, Screen_1, "ScreenComponent");
-var City_1 = require("./City");
-__createBinding(exports, City_1, "CityComponent");
+var CardItem_1 = require("./CardItem");
+__createBinding(exports, CardItem_1, "CardItem");

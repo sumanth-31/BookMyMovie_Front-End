@@ -50,7 +50,9 @@ var CitiesPage = function (props) {
             react_1["default"].createElement(link_1["default"], { href: index_1.CLIENT_URLS.registerCity },
                 react_1["default"].createElement("button", { className: "btn btn-primary absolute right-0" }, "+ Add City"))),
         react_1["default"].createElement("div", { className: "card" },
-            react_1["default"].createElement("ul", { className: "list-group" }, cities.map(function (city) { return (react_1["default"].createElement(index_2.CityComponent, { city: city, key: city.id })); })))));
+            react_1["default"].createElement("ul", { className: "list-group" },
+                cities.length == 0 ? (react_1["default"].createElement("h3", { className: "text-center" }, "Sorry! There are no cities")) : null,
+                cities.map(function (city) { return (react_1["default"].createElement(index_2.CardItem, { displayField: city.name, buttonValue: "List Movies", buttonLink: index_1.CLIENT_URLS.cities + "/" + city.id + "/movies/", key: city.id })); })))));
 };
 CitiesPage.getInitialProps = function (_a) {
     var res = _a.res;

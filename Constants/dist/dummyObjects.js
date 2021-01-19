@@ -1,6 +1,6 @@
 "use strict";
 exports.__esModule = true;
-exports.DUMMY_SCREEN = exports.DUMMY_THEATRE = void 0;
+exports.DUMMY_CITY = exports.DUMMY_SCREEN = exports.DUMMY_THEATRE = void 0;
 exports.DUMMY_THEATRE = {
     id: 1,
     name: "dummy",
@@ -34,4 +34,8 @@ exports.DUMMY_SCREEN = {
         name: "dummy"
     },
     numberOfSeats: 60
+};
+exports.DUMMY_CITY = {
+    id: 0,
+    name: "Dummy"
 };

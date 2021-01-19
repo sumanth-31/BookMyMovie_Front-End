@@ -13,22 +13,21 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 exports.__esModule = true;
-exports.TheatreComponent = void 0;
+exports.CardItem = void 0;
 var react_1 = require("react");
 var link_1 = require("next/link");
-var index_1 = require("@Constants/index");
-var TheatreComponent = /** @class */ (function (_super) {
-    __extends(TheatreComponent, _super);
-    function TheatreComponent() {
+var CardItem = /** @class */ (function (_super) {
+    __extends(CardItem, _super);
+    function CardItem() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    TheatreComponent.prototype.render = function () {
-        var theatre = this.props.theatre;
+    CardItem.prototype.render = function () {
+        var _a = this.props, buttonLink = _a.buttonLink, displayField = _a.displayField, buttonValue = _a.buttonValue;
         return (react_1["default"].createElement("li", { className: "list-group-item" },
-            react_1["default"].createElement("div", { className: "float-left" }, theatre.name),
-            react_1["default"].createElement(link_1["default"], { href: index_1.CLIENT_URLS.theatres + "/" + theatre.id + "/screens/" },
-                react_1["default"].createElement("button", { className: "btn btn-primary float-right" }, "Book Tickets"))));
+            react_1["default"].createElement("div", { className: "float-left" }, displayField),
+            buttonLink ? (react_1["default"].createElement(link_1["default"], { href: buttonLink },
+                react_1["default"].createElement("button", { className: "btn btn-primary float-right" }, buttonValue))) : null));
     };
-    return TheatreComponent;
+    return CardItem;
 }(react_1.Component));
-exports.TheatreComponent = TheatreComponent;
+exports.CardItem = CardItem;

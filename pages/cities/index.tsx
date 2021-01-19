@@ -4,7 +4,7 @@ import axios from "axios";
 import { ICitiesProps, IGetCitiesResponse } from "@Interfaces/index";
 import { API_URLS, CLIENT_URLS } from "@Constants/index";
 import { ICityModel } from "@Interfaces/Models";
-import { Navbar, CityComponent } from "@Components/index";
+import { Navbar, CardItem } from "@Components/index";
 import Link from "next/link";
 const CitiesPage: NextPage<ICitiesProps> = (props) => {
 	const { cities } = props;
@@ -21,8 +21,16 @@ const CitiesPage: NextPage<ICitiesProps> = (props) => {
 			</div>
 			<div className="card">
 				<ul className="list-group">
+					{cities.length == 0 ? (
+						<h3 className="text-center">Sorry! There are no cities</h3>
+					) : null}
 					{cities.map((city) => (
-						<CityComponent city={city} key={city.id} />
+						<CardItem
+							displayField={city.name}
+							buttonValue="List Movies"
+							buttonLink={`${CLIENT_URLS.cities}/${city.id}/movies/`}
+							key={city.id}
+						/>
 					))}
 				</ul>
 			</div>
