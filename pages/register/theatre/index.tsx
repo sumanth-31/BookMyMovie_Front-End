@@ -20,11 +20,9 @@ const RegisterTheatre: NextPage<IRegisterTheatreProps> = (props) => {
 	const [ownerId, setOwnerId] = useState(ownerIdInitialValue);
 	const [cityId, setCityId] = useState(cityIdInitialValue);
 	const ownerChange = (id: number) => {
-		console.log("called owner change " + id);
 		setOwnerId(id);
 	};
 	const cityChange = (id: number) => {
-		console.log("called city change " + id);
 		setCityId(id);
 	};
 	const registerTheatre = (event: React.FormEvent) => {
