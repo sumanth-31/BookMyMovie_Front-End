@@ -1,6 +1,6 @@
 import React from "react";
 import { NextPage } from "next";
-import { Navbar, ScreenComponent } from "@Components/index";
+import { Navbar, CardItem } from "@Components/index";
 import {
 	IGetScreensResponse,
 	IGetTheatreResponse,
@@ -29,7 +29,14 @@ const Theatre: NextPage<ITheatreSlugProps> = (props) => {
 				) : null}
 				<ul className="list-group">
 					{screens.map((screen) => {
-						return <ScreenComponent key={screen.id} screen={screen} />;
+						return (
+							<CardItem
+								key={screen.id}
+								displayField={screen.movie.name}
+								buttonValue="Book Tickets"
+								buttonLink={`${CLIENT_URLS.theatres}/${theatre.id}/screens/${screen.id}`}
+							/>
+						);
 					})}
 				</ul>
 			</div>

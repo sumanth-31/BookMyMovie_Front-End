@@ -8,13 +8,14 @@ export const API_URLS = {
 	moviesUrl: "movies/",
 	screensUrl: "screens/",
 	seatsUrl: "seats/",
+	moviesInCityUrl: "movies/city/",
 	buildUrl: function (urlName: string) {
 		return BASE_URL + this[urlName];
 	},
 };
 export const CLIENT_URLS = {
 	theatres: "/theatres",
-	cities: "/cities/",
+	cities: "/cities",
 	registerOwner: "/register/owner/",
 	registerCity: "/register/city/",
 	registerTheatre: "/register/theatre/",

@@ -97,7 +97,9 @@ var Theatres = /** @class */ (function (_super) {
                 react_1["default"].createElement(link_1["default"], { href: index_1.CLIENT_URLS.registerTheatre },
                     react_1["default"].createElement("button", { className: "btn btn-primary absolute right-0" }, "+ Add Theatre"))),
             react_1["default"].createElement("div", { className: "card w-100" },
-                react_1["default"].createElement("ul", { className: "list-group" }, theatres.map(function (theatre) { return (react_1["default"].createElement(index_2.TheatreComponent, { key: theatre.id, theatre: theatre })); })))));
+                react_1["default"].createElement("ul", { className: "list-group" },
+                    theatres.length === 0 ? (react_1["default"].createElement("h3", { className: "text-center" }, "Sorry! There are no theates")) : null,
+                    theatres.map(function (theatre) { return (react_1["default"].createElement(index_2.CardItem, { key: theatre.id, displayField: theatre.name, buttonLink: index_1.CLIENT_URLS.theatres + "/" + theatre.id + "/screens/", buttonValue: "Book Tickets" })); })))));
     };
     return Theatres;
 }(react_1.Component));

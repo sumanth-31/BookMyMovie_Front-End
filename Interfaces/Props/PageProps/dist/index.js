@@ -13,3 +13,4 @@ exports.__esModule = true;
 __exportStar(require("./register"), exports);
 __exportStar(require("./TheatreSlugProps"), exports);
 __exportStar(require("./CitiesProps"), exports);
+__exportStar(require("./CitySlugProps"), exports);

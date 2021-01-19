@@ -4,7 +4,7 @@ import axios from "axios";
 import { IGetTheatresResponse } from "@Interfaces/index";
 import { ITheatreModel } from "@Models/index";
 import { API_URLS, CLIENT_URLS } from "@Constants/index";
-import { Navbar, TheatreComponent } from "@Components/index";
+import { Navbar, CardItem } from "@Components/index";
 import Link from "next/link";
 class Theatres extends Component<IGetTheatresResponse> {
 	static async getInitialProps({ res }: NextPageContext) {
@@ -41,8 +41,16 @@ class Theatres extends Component<IGetTheatresResponse> {
 				</div>
 				<div className="card w-100">
 					<ul className="list-group">
+						{theatres.length === 0 ? (
+							<h3 className="text-center">Sorry! There are no theates</h3>
+						) : null}
 						{theatres.map((theatre) => (
-							<TheatreComponent key={theatre.id} theatre={theatre} />
+							<CardItem
+								key={theatre.id}
+								displayField={theatre.name}
+								buttonLink={`${CLIENT_URLS.theatres}/${theatre.id}/screens/`}
+								buttonValue="Book Tickets"
+							/>
 						))}
 					</ul>
 				</div>
