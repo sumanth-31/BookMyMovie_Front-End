@@ -7,15 +7,26 @@ import {
 	ITheatreSlugProps,
 } from "@Interfaces/index";
 import { API_URLS, CLIENT_URLS, DUMMY_THEATRE } from "@Constants/index";
-import { IScreenModel, ITheatreModel } from "@Interfaces/Models";
+import { ITheatreModel } from "@Interfaces/Models";
 import axios from "axios";
+import Link from "next/link";
 const Theatre: NextPage<ITheatreSlugProps> = (props) => {
 	const { screens, theatre } = props;
 	return (
 		<div className="d-flex flex-column vh-100">
 			<Navbar />
-			<h3>Screens available at {theatre.name}</h3>
+			<div className="mt-2 px-3 d-flex align-content-center justify-content-between mb-3">
+				<h3 className="d-inline">Screens Available at {theatre.name}</h3>
+				<Link href={CLIENT_URLS.registerScreen}>
+					<button className="btn btn-primary absolute right-0">
+						+ Add Screen
+					</button>
+				</Link>
+			</div>
 			<div className="card">
+				{screens.length === 0 ? (
+					<h3 className="text-center mt-3">Sorry! There are no screes.</h3>
+				) : null}
 				<ul className="list-group">
 					{screens.map((screen) => {
 						return <ScreenComponent key={screen.id} screen={screen} />;
