@@ -14,3 +14,4 @@ __exportStar(require("./register"), exports);
 __exportStar(require("./TheatreSlugProps"), exports);
 __exportStar(require("./CitiesProps"), exports);
 __exportStar(require("./CitySlugProps"), exports);
+__exportStar(require("./TheatreProps"), exports);

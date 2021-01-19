@@ -1,8 +1,6 @@
 import React from "react";
 import { IDropDownComponentProps } from "@Props/index";
-import { ICityModel, IOwnerModel } from "@Interfaces/Models";
 import Link from "next/link";
-import { CLIENT_URLS } from "@Constants/index";
 export const ObjectDropDown = (props: IDropDownComponentProps) => {
 	const optionChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
 		props.onSelect(parseInt(event.target.value));
