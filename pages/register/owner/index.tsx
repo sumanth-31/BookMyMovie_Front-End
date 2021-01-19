@@ -25,7 +25,10 @@ const OwnerRegistration = () => {
 				router.push(CLIENT_URLS.theatres);
 			})
 			.catch((err) => {
-				alert(`Error Occured! ${err.response.data.message}`);
+				console.log(err);
+				let errorMessage = "";
+				if (err.response) errorMessage = err.response.data.message;
+				alert(`Error occured! ${errorMessage}`);
 			});
 	};
 	return (

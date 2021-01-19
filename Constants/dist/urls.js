@@ -20,5 +20,6 @@ exports.CLIENT_URLS = {
     registerOwner: "/register/owner/",
     registerCity: "/register/city/",
     registerTheatre: "/register/theatre/",
-    registerMovie: "/register/movie/"
+    registerMovie: "/register/movie/",
+    errorPage: "/error"
 };

@@ -63,7 +63,11 @@ var MovieRegistration = function () {
                             alert("Movie successfully registered!");
                             router.push(index_2.CLIENT_URLS.theatres);
                         })["catch"](function (err) {
-                            alert("Error occured! " + err.response.data.message);
+                            console.log(err);
+                            var errorMessage = "";
+                            if (err.response)
+                                errorMessage = err.response.data.message;
+                            alert("Error occured! " + errorMessage);
                         })];
                 case 1:
                     _a.sent();

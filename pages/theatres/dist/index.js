@@ -64,7 +64,7 @@ var Theatres = /** @class */ (function (_super) {
         return _this;
     }
     Theatres.getInitialProps = function (_a) {
-        var req = _a.req;
+        var res = _a.res;
         return __awaiter(this, void 0, void 0, function () {
             var theatres, theatreURL;
             return __generator(this, function (_b) {
@@ -80,6 +80,8 @@ var Theatres = /** @class */ (function (_super) {
                                 theatres = responseData.theatres;
                             })["catch"](function (err) {
                                 console.log(err);
+                                res.writeHead(302, { location: index_1.CLIENT_URLS.errorPage });
+                                res.end();
                             })];
                     case 1:
                         _b.sent();
