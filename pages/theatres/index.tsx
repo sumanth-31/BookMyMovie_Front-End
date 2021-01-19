@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { NextPageContext } from "next";
 import axios from "axios";
-import { IGetTheatresResponse } from "@Interfaces/index";
+import { ITheatreProps } from "@Interfaces/index";
 import { ITheatreModel } from "@Models/index";
 import { API_URLS, CLIENT_URLS } from "@Constants/index";
 import { Navbar, CardItem } from "@Components/index";
 import Link from "next/link";
-class Theatres extends Component<IGetTheatresResponse> {
+class Theatres extends Component<ITheatreProps> {
 	static async getInitialProps({ res }: NextPageContext) {
 		let theatres: ITheatreModel[] = [];
 		const theatreURL = API_URLS.buildUrl("theatresUrl");
@@ -14,7 +14,7 @@ class Theatres extends Component<IGetTheatresResponse> {
 			.get(theatreURL)
 			.then((res) => {
 				console.log(res);
-				const responseData: IGetTheatresResponse = res.data;
+				const responseData: ITheatreProps = res.data;
 				theatres = responseData.theatres;
 			})
 			.catch((err) => {

@@ -8,13 +8,7 @@ import {
 	IPostScreenResponse,
 } from "@Interfaces/index";
 import axios from "axios";
-import { useRouter } from "next/router";
-import {
-	ICityModel,
-	IMovieModel,
-	IOwnerModel,
-	ITheatreModel,
-} from "@Interfaces/Models";
+import { IMovieModel, ITheatreModel } from "@Interfaces/Models";
 import { API_URLS, CLIENT_URLS } from "@Constants/index";
 import { Navbar, ObjectDropDown } from "@Components/index";
 const RegisterScreen: NextPage<IRegisterScreenProps> = (props) => {
