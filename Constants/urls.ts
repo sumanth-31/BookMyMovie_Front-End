@@ -1,6 +1,5 @@
-const HOST = "http://localhost:";
-const PORT = "8080/";
-const BASE_URL = HOST + PORT;
+const HOST = "https://book-on-click-backend.herokuapp.com/";
+const BASE_URL = HOST;
 export const API_URLS = {
 	theatresUrl: "theatres/",
 	ownersUrl: "owners/",
