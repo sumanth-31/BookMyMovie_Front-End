@@ -6,7 +6,7 @@ import {
 	IGetTheatreResponse,
 	ITheatreSlugProps,
 } from "@Interfaces/index";
-import { API_URLS, DUMMY_THEATRE } from "@Constants/index";
+import { API_URLS, CLIENT_URLS, DUMMY_THEATRE } from "@Constants/index";
 import { IScreenModel, ITheatreModel } from "@Interfaces/Models";
 import axios from "axios";
 const Theatre: NextPage<ITheatreSlugProps> = (props) => {
@@ -27,6 +27,7 @@ const Theatre: NextPage<ITheatreSlugProps> = (props) => {
 	);
 };
 Theatre.getInitialProps = async (ctx) => {
+	const res = ctx.res;
 	const { theatreIdSlug } = ctx.query;
 	console.log(theatreIdSlug);
 	const rawScreensUrl = API_URLS.buildUrl("screensUrl");
@@ -47,7 +48,8 @@ Theatre.getInitialProps = async (ctx) => {
 		})
 		.catch((err) => {
 			console.log(err);
-			alert("Some error occured!");
+			res.writeHead(302, { location: CLIENT_URLS.errorPage });
+			res.end();
 		});
 	return {
 		screens: screens,

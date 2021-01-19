@@ -51,7 +51,9 @@ const RegisterScreen: NextPage<IRegisterScreenProps> = (props) => {
 			})
 			.catch((err) => {
 				console.log(err);
-				alert(`Error occured! ${err.response.data.message}`);
+				let errorMessage = "";
+				if (err.response) errorMessage = err.response.data.message;
+				alert(`Error occured! ${errorMessage}`);
 			});
 	};
 	return (
@@ -101,7 +103,7 @@ const RegisterScreen: NextPage<IRegisterScreenProps> = (props) => {
 		</div>
 	);
 };
-RegisterScreen.getInitialProps = async ({ req }) => {
+RegisterScreen.getInitialProps = async ({ res }) => {
 	let movies: IMovieModel[] = [];
 	let theatres: ITheatreModel[] = [];
 	const moviesUrl = API_URLS.buildUrl("moviesUrl");
@@ -116,8 +118,9 @@ RegisterScreen.getInitialProps = async ({ req }) => {
 			theatres = theatresResponse.theatres;
 		})
 		.catch((reason) => {
-			alert("Error Occured!");
 			console.log(reason);
+			res.writeHead(302, { location: CLIENT_URLS.errorPage });
+			res.end();
 		});
 	return {
 		theatres: theatres,

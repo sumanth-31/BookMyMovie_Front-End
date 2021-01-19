@@ -1,7 +1,7 @@
 import { IScreenSlugProps } from "@Interfaces/Props/PageProps/ScreenSlugProps";
 import React, { useState } from "react";
 import { NextPage, NextPageContext } from "next";
-import { API_URLS, DUMMY_SCREEN } from "@Constants/index";
+import { API_URLS, CLIENT_URLS, DUMMY_SCREEN } from "@Constants/index";
 import axios from "axios";
 import { IGetScreenResponse } from "@Interfaces/index";
 import { IScreenModel } from "@Interfaces/Models";
@@ -54,7 +54,9 @@ const ScreenSlugPage: NextPage<IScreenSlugProps> = (props) => {
 			})
 			.catch((err) => {
 				console.log(err);
-				alert(`Error occured! ${err.response.data.message}`);
+				let errorMessage = "";
+				if (err.response) errorMessage = err.response.data.message;
+				alert(`Error occured! ${errorMessage}`);
 			});
 
 		window.location.href = window.location.href;
@@ -95,6 +97,7 @@ const ScreenSlugPage: NextPage<IScreenSlugProps> = (props) => {
 };
 ScreenSlugPage.getInitialProps = async (ctx: NextPageContext) => {
 	const { screenIdSlug } = ctx.query;
+	const res = ctx.res;
 	const rawScreenUrl = API_URLS.buildUrl("screensUrl");
 	const screenUrl = `${rawScreenUrl}?screenId=${screenIdSlug}`;
 	const screenPromise = axios.get(screenUrl);
@@ -112,7 +115,8 @@ ScreenSlugPage.getInitialProps = async (ctx: NextPageContext) => {
 		})
 		.catch((err) => {
 			console.log(err);
-			alert("Error occured!");
+			res.writeHead(302, { location: CLIENT_URLS.errorPage });
+			res.end();
 		});
 	return {
 		screen,

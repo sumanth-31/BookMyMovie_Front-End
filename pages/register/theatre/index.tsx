@@ -8,7 +8,6 @@ import {
 	IPostTheatreResponse,
 } from "@Interfaces/index";
 import axios from "axios";
-import { useRouter } from "next/router";
 import { ICityModel, IOwnerModel } from "@Interfaces/Models";
 import { API_URLS, CLIENT_URLS } from "@Constants/index";
 import { Navbar, ObjectDropDown } from "@Components/index";
@@ -46,7 +45,9 @@ const RegisterTheatre: NextPage<IRegisterTheatreProps> = (props) => {
 			})
 			.catch((err) => {
 				console.log(err);
-				alert(`Error occured! ${err.response.data.message}`);
+				let errorMessage = "";
+				if (err.response) errorMessage = err.response.data.message;
+				alert(`Error occured! ${errorMessage}`);
 			});
 	};
 	return (
@@ -95,7 +96,7 @@ const RegisterTheatre: NextPage<IRegisterTheatreProps> = (props) => {
 		</div>
 	);
 };
-RegisterTheatre.getInitialProps = async ({ req }) => {
+RegisterTheatre.getInitialProps = async ({ res }) => {
 	let owners: IOwnerModel[] = [];
 	let cities: ICityModel[] = [];
 	const citiesUrl = API_URLS.buildUrl("citiesUrl");
@@ -110,8 +111,9 @@ RegisterTheatre.getInitialProps = async ({ req }) => {
 			owners = ownersResponse.owners;
 		})
 		.catch((reason) => {
-			alert("Error Occured!");
 			console.log(reason);
+			res.writeHead(302, { location: CLIENT_URLS.errorPage });
+			res.end();
 		});
 	return {
 		cities: cities,

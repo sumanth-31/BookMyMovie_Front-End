@@ -73,7 +73,10 @@ var RegisterScreen = function (props) {
             alert("Screen registered successfully");
         })["catch"](function (err) {
             console.log(err);
-            alert("Error occured! " + err.response.data.message);
+            var errorMessage = "";
+            if (err.response)
+                errorMessage = err.response.data.message;
+            alert("Error occured! " + errorMessage);
         });
     };
     return (react_1["default"].createElement("div", { className: "d-flex flex-column vh-100" },
@@ -95,7 +98,7 @@ var RegisterScreen = function (props) {
                 react_1["default"].createElement("button", { className: "btn btn-primary w-100", type: "submit" }, "Submit")))));
 };
 RegisterScreen.getInitialProps = function (_a) {
-    var req = _a.req;
+    var res = _a.res;
     return __awaiter(void 0, void 0, void 0, function () {
         var movies, theatres, moviesUrl, moviesPromise, theatresUrl, theatresPromise;
         return __generator(this, function (_b) {
@@ -114,8 +117,9 @@ RegisterScreen.getInitialProps = function (_a) {
                             movies = moviesResponse.movies;
                             theatres = theatresResponse.theatres;
                         })["catch"](function (reason) {
-                            alert("Error Occured!");
                             console.log(reason);
+                            res.writeHead(302, { location: index_1.CLIENT_URLS.errorPage });
+                            res.end();
                         })];
                 case 1:
                     _b.sent();

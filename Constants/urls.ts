@@ -18,4 +18,5 @@ export const CLIENT_URLS = {
 	registerCity: "/register/city/",
 	registerTheatre: "/register/theatre/",
 	registerMovie: "/register/movie/",
+	errorPage: "/error",
 };

@@ -7,7 +7,7 @@ import { API_URLS, CLIENT_URLS } from "@Constants/index";
 import { Navbar, TheatreComponent } from "@Components/index";
 import Router from "next/router";
 class Theatres extends Component<IGetTheatresResponse> {
-	static async getInitialProps({ req }: NextPageContext) {
+	static async getInitialProps({ res }: NextPageContext) {
 		let theatres: ITheatreModel[] = [];
 		const theatreURL = API_URLS.buildUrl("theatresUrl");
 		await axios
@@ -19,6 +19,8 @@ class Theatres extends Component<IGetTheatresResponse> {
 			})
 			.catch((err) => {
 				console.log(err);
+				res.writeHead(302, { location: CLIENT_URLS.errorPage });
+				res.end();
 			});
 		return {
 			theatres: theatres,
