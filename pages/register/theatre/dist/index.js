@@ -49,11 +49,9 @@ var RegisterTheatre = function (props) {
     var _b = react_1.useState(ownerIdInitialValue), ownerId = _b[0], setOwnerId = _b[1];
     var _c = react_1.useState(cityIdInitialValue), cityId = _c[0], setCityId = _c[1];
     var ownerChange = function (id) {
-        console.log("called owner change " + id);
         setOwnerId(id);
     };
     var cityChange = function (id) {
-        console.log("called city change " + id);
         setCityId(id);
     };
     var registerTheatre = function (event) {
