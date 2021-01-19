@@ -1,3 +1,23 @@
+## BookMyMovie
+
+A Ticket Booking System, developed using ReactJs(TypeScript).
+
+This is the front-end of the application and has been deployed on https://book-on-click.herokuapp.com.
+
+Note that, due to subscription restrictions, initial request might take upto 1 minute as the servers are shutdown after 1 hour of inactivity on the developed website.
+
+Back-End Code link: https://github.com/sumanth-31/BookMyMovie.
+
+Features:
+
+1) User-Friendly workflow.
+
+2) Easy ticket-booking system.
+
+3) Simple, yet elegant use-interface provided by bootstrap.
+
+4) SSR provided by NextJs.
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
@@ -26,9 +46,5 @@ To learn more about Next.js, take a look at the following resources:
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
