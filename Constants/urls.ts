@@ -14,6 +14,7 @@ export const API_URLS = {
 };
 export const CLIENT_URLS = {
 	theatres: "/theatres",
+	cities: "/cities/",
 	registerOwner: "/register/owner/",
 	registerCity: "/register/city/",
 	registerTheatre: "/register/theatre/",

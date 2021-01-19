@@ -30,7 +30,7 @@ class Theatres extends Component<IGetTheatresResponse> {
 		const theatres = this.props.theatres;
 		return (
 			<div className="d-flex flex-column">
-				<Navbar />
+				<Navbar theatres />
 				<div className="mt-2 px-3 d-flex align-content-center justify-content-between mb-3">
 					<h3 className="d-inline">Theatres</h3>
 					<Link href={CLIENT_URLS.registerTheatre}>

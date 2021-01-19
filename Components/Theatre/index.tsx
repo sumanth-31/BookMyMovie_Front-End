@@ -10,7 +10,7 @@ export class TheatreComponent extends Component<ITheatreComponentProps> {
 		return (
 			<li className="list-group-item">
 				<div className="float-left">{theatre.name}</div>
-				<Link href={`${CLIENT_URLS.theatres}/${theatre.id}`}>
+				<Link href={`${CLIENT_URLS.theatres}/${theatre.id}/screens/`}>
 					<button className="btn btn-primary float-right">Book Tickets</button>
 				</Link>
 			</li>

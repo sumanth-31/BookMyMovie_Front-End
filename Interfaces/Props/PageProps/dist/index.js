@@ -12,3 +12,4 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 exports.__esModule = true;
 __exportStar(require("./register"), exports);
 __exportStar(require("./TheatreSlugProps"), exports);
+__exportStar(require("./CitiesProps"), exports);
